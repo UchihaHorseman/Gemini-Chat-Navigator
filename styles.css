@@ -1,0 +1,78 @@
+/* 右侧导航主容器 */
+.gemini-nav-container {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: auto;
+  max-height: 80vh;
+  width: 20px; /* 默认收纳宽度 */
+  background-color: rgba(20, 20, 20, 0.85);
+  border-radius: 8px 0 0 8px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 99999;
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 鼠标移入展开样式 */
+.gemini-nav-container:hover {
+  width: 280px; /* 展开宽度 */
+  background-color: #202124; /* 匹配暗黑模式底色 */
+  align-items: stretch;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+/* 图1样式：收纳状态下的刻度短线 */
+.gemini-nav-item-dash {
+  width: 12px;
+  height: 2px;
+  background-color: #5f6368;
+  margin: 5px 0;
+  transition: background-color 0.2s, width 0.2s;
+  flex-shrink: 0;
+}
+
+.gemini-nav-container:hover .gemini-nav-item-dash {
+  display: none; /* 展开时隐藏短线 */
+}
+
+/* 图2样式：展开状态下的文本列表 */
+.gemini-nav-item-text {
+  display: none;
+  color: #e8eaed;
+  font-size: 13px;
+  padding: 8px 12px;
+  margin: 3px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 超出自动显示省略号 ... */
+  transition: background-color 0.2s;
+}
+
+/* 悬停在某个话题上时的反馈 */
+.gemini-nav-item-text:hover {
+  background-color: #303134;
+  color: #fff;
+}
+
+.gemini-nav-container:hover .gemini-nav-item-text {
+  display: block; /* 展开时显示文本 */
+}
+
+/* 自定义展开后的滚动条 */
+.gemini-nav-container::-webkit-scrollbar {
+  width: 5px;
+}
+.gemini-nav-container::-webkit-scrollbar-thumb {
+  background: #5f6368;
+  border-radius: 10px;
+}
