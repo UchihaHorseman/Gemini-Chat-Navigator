@@ -1,5 +1,5 @@
 {
-  "manifest_version": 4,
+  "manifest_version": 3,
   "name": "Gemini Chat Navigator",
   "version": "1.1",
   "description": "为 Gemini 添加右侧历史对话快速定位侧边栏",
